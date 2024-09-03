@@ -1,8 +1,10 @@
-package ru.liquibaseDocker.liquibase;
+package ru.liquibaseDocker.liquibase.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import ru.liquibaseDocker.liquibase.dto.WalletDto;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import static jakarta.persistence.GenerationType.AUTO;
@@ -17,5 +19,5 @@ public class Wallet {
     @GeneratedValue(strategy = AUTO)
     @Column(name = "wallet_id")
     private UUID walletId;
-    private String amount;
+    private BigDecimal amount;
 }

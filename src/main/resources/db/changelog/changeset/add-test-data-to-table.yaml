@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: add-test-data
-      author: Sergey
+      author: Dmitrii
       changes:
         - insert:
             tableName: wallet

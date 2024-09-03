@@ -23,6 +23,4 @@ services:
       - POSTGRES_DB=wallet
       - POSTGRES_USER=test
       - POSTGRES_PASSWORD=test
-    volumes:
-      - ./db-data:/var/lib/postgresql/data
-      - ./migrations:/docker-entrypoint-initdb.d/
+
