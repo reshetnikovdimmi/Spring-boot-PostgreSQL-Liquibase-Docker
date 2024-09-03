@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+  service:
+    build: .
+    container_name: service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/wallet
+      - SPRING_DATASOURCE_USERNAME=test
+      - SPRING_DATASOURCE_PASSWORD=test
+
+
+  db:
+    image: postgres:14-alpine
+    container_name: db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=wallet
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+      - ./migrations:/docker-entrypoint-initdb.d/
