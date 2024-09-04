@@ -2,7 +2,7 @@ package ru.liquibaseDocker.liquibase.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import ru.liquibaseDocker.liquibase.dto.WalletDto;
+
 
 import java.math.BigDecimal;
 import java.util.UUID;
