@@ -63,7 +63,7 @@ docker-compose up
 Конфигурация
 Все конфигурационные параметры для приложения и базы данных находятся в файлах:
 
-src/main/resources/application.yml - Конфигурация Spring Boot приложения.
+src/main/resources/application.properties - Конфигурация Spring Boot приложения.
 docker-compose.yml - Конфигурация Docker Compose для настройки контейнеров.
 
 
