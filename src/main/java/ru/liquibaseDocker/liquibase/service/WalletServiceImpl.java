@@ -1,6 +1,7 @@
 package ru.liquibaseDocker.liquibase.service;
 
 
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.liquibaseDocker.liquibase.exception.InsufficientFundsException;
@@ -31,11 +32,8 @@ public class WalletServiceImpl implements WalletService {
             withdraw(wallet, operation.getAmount());
         } else
             throw new InvalidOperationTypeException("Неверный тип операции");
-
         walletRepository.save(wallet);
-
     }
-
 
     private void deposit(Wallet wallet, BigDecimal amount) {
         wallet.setAmount(wallet.getAmount().add(amount));
@@ -48,13 +46,9 @@ public class WalletServiceImpl implements WalletService {
         wallet.setAmount(wallet.getAmount().subtract(amount));
     }
 
-
     @Override
-    public Wallet getWalletBalance(UUID walletUuid) {
-        return walletRepository.findByWalletId(walletUuid)
+    public Wallet getWalletBalance(String walletUuid) {
+        return walletRepository.findByWalletId(UUID.fromString(walletUuid))
                 .orElseThrow(() -> new NotFoundException("Кошелек не найден"));
-
     }
-
-
 }

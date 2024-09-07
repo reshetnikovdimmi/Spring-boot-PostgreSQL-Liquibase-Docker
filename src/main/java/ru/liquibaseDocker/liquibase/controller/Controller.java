@@ -1,24 +1,23 @@
 package ru.liquibaseDocker.liquibase.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.liquibaseDocker.liquibase.model.WalletOperationRequest;
 import ru.liquibaseDocker.liquibase.service.WalletService;
 
 
-import java.util.UUID;
-
 @RestController
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
 public class Controller {
 
-    @Autowired
-    private WalletService walletService;
 
+    private final WalletService walletService;
+
+    @Tag(name="Controller изменения счета в базе данных", description="Выполняет операцию над кошельком.")
 
     @PostMapping("/wallet")
     public ResponseEntity<String> depositOperation(@Valid @RequestBody WalletOperationRequest operation) {
@@ -26,15 +25,13 @@ public class Controller {
         return ResponseEntity.ok("Выполнение операции успешно завершено!");
     }
 
+    @Tag(name="Controller получения баланса кошелька", description="Возвращает баланс указанного кошелька.")
+
     @GetMapping("/wallets/{WALLET_UUID}")
     public ResponseEntity<Object> getWalletBalance(@PathVariable("WALLET_UUID") String WALLET_UUID) {
-        return ResponseEntity.ok(walletService.getWalletBalance(UUID.fromString(WALLET_UUID)));
+        return ResponseEntity.ok(walletService.getWalletBalance(WALLET_UUID));
     }
 
 
-    @RequestMapping("/")
-    public String getRedirectUrl() {
-        return "redirect:swagger-ui/";
-    }
 
 }

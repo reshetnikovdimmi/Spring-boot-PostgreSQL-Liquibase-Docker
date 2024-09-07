@@ -8,7 +8,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: wallet_id
-                  value: '123e4567-e89b-12d3-a456-426614174000'
+                  value: '3fa85f64-5717-4562-b3fc-2c963f66afa6'
               - column:
                   name: amount
                   value: '1000.00'

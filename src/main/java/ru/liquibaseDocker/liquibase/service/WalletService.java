@@ -9,9 +9,8 @@ import java.util.UUID;
 
 public interface WalletService {
 
-
-
-    Object getWalletBalance(UUID walletUuid);
+    Object getWalletBalance(String walletUuid);
 
     void depositOperation(WalletOperationRequest operation);
+
 }
