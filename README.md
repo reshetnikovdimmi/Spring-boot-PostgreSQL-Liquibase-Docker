@@ -50,7 +50,7 @@ Docker Compose: Для упрощения работы с несколькими
 Запуск
 Клонируйте репозиторий:
 
-git clone [https://github.com/jeka-jvm/wallet.git](https://github.com/reshetnikovdimmi/Spring-boot-PostgreSQL-Liquibase-Docker.git)
+git clone (https://github.com/reshetnikovdimmi/Spring-boot-PostgreSQL-Liquibase-Docker.git)
 
 Соберите и запустите контейнеры с помощью Docker Compose:
 
